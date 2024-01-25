@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+	<!-- header section start-->
+	<!-- banner section start-->
+	<div class="banner_section layout_padding">
+		<div class="container">
+			<h1 class="best_taital">Please Fillup Personal Information</h1>
+
+		    <p class="there_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+		    <div class="bt_main">
+		    	<div class="discover_bt"><a href="{% url 'LoginOut:form' %}">Click Here</a></div>
+		    </div>
+		</div>
+	</div>
+	<!-- banner section end-->
+
+
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+      <script src="{% static 'js/plugin.js'%}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+      <script src="{% static 'js/custom.js'%}"></script>
+      <!-- javascript -->
+      <script src="{% static 'js/owl.carousel.js'%}"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+      $(document).ready(function(){
+      $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         </script>
+</body>
+{% endblock %}

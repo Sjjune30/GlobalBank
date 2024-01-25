@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+label {
+  color: white;
+}
+</style>
+
+<link rel="stylesheet" href="{% static 'css/regstyle.css' %}">
+<div class="services_section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="services_section">
+                    <h2 class="services_text">Detailed<a href="#">Registration</a></h2>
+                        <div class="card-body py-md-4">
+                            <form method="post" action="form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="username" placeholder="UserName">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="dob" placeholder="DOB">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="age" placeholder="Age">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="gender" placeholder="Gender">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="phonenumber" placeholder="Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="E-Mail">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="address" placeholder="Address">
+                                </div>
+                                  <label for="district">District:</label>
+                                      <select id="district" name="district" onchange="populateBranches()">
+                                        <option value="TRIVANDRUM">TRIVANDRUM</option>
+                                        <option value="KOLLAM">KOLLAM</option>
+                                        <option value="PATHANAMTHITTA">PATHANAMTHITTA</option>
+                                        <option value="ALAPPY">ALAPPY</option>
+                                        <option value="KOTTAYAM">KOTTAYAM</option>
+                                      </select>
+                                      <br>
+                                      <label for="branch">Branch:</label>
+                                      <select id="branch" name="branch">
+                                      </select><br>
+
+                                      <label for="accounttype">A/C Type:</label>
+                                      <select id="accounttype" name="accounttype">
+                                        <option value="type1">Savings Account</option>
+                                        <option value="type2">Current Account</option>
+                                        <option value="type3">Salary Account</option>
+                                      </select><br>
+                                        <label>Materials Provided:</label>
+                                          <br>
+                                          <input type="checkbox" id="debit_card" name="debit_card" value="debit_card">
+                                          <label for="debit_card">Debit card</label>
+                                          <br>
+                                          <input type="checkbox" id="credit_card" name="credit_card" value="credit_card">
+                                          <label for="credit_card">Credit card</label>
+                                          <br>
+                                          <input type="checkbox" id="cheque_book" name="cheque_book" value="cheque_book">
+                                          <label for="cheque_book">Cheque book</label>
+                                          <br>
+                                          <input type="checkbox" id="passbook" name="passbook" value="passbook">
+                                          <label for="passbook">Passbook</label>
+
+        <P><a class="btn btn-primary" type="submit"  onclick="alert('Your form has been submitted!')" href="{% url 'BankApp:home' %}">SUBMIT</a>
+        <a class="btn btn-danger" href="{% url 'LoginOut:logout' %}">Logout</a></P>
+
+</form>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function populateBranches() {
+  var district = document.getElementById("district").value;
+  var branches = document.getElementById("branch");
+  branches.innerHTML = "";
+  if (district == "TRIVANDRUM") {
+    var option1 = document.createElement("option");
+    option1.text = "CHIRAYINKEEZHU";
+    branches.add(option1);
+    var option2 = document.createElement("option");
+    option2.text = "BALARAMAPURAM";
+    branches.add(option2);
+    var option3 = document.createElement("option");
+    option3.text = "KAZHAKKOOTTAM";
+    branches.add(option3);
+  } else if (district == "KOLLAM") {
+    var option1 = document.createElement("option");
+    option1.text = "KOTTIYAM";
+    branches.add(option1);
+    var option2 = document.createElement("option");
+    option2.text = "KUNDARA";
+    branches.add(option2);
+    var option3 = document.createElement("option");
+    option3.text = "CHINNAKKADA";
+    branches.add(option3);
+  } else if (district == "PATHANAMTHITTA") {
+    var option1 = document.createElement("option");
+    option1.text = "KONNI";
+    branches.add(option1);
+    var option2 = document.createElement("option");
+    option2.text = "RANNI";
+    branches.add(option2);
+    var option3 = document.createElement("option");
+    option3.text = "PADALAM";
+    branches.add(option3);
+  } else if (district == "ALAPPY") {
+    var option1 = document.createElement("option");
+    option1.text = "MUHAMMA";
+    branches.add(option1);
+    var option2 = document.createElement("option");
+    option2.text = "KAYAMKULAM";
+    branches.add(option2);
+    var option3 = document.createElement("option");
+    option3.text = "PUNNAPRA";
+    branches.add(option3);
+  } else if (district == "KOTTAYAM") {
+    var option1 = document.createElement("option");
+    option1.text = "KANJIRAPALLY";
+    branches.add(option1);
+    var option2 = document.createElement("option");
+    option2.text = "ERATTUPETTA";
+    branches.add(option2);
+    var option3 = document.createElement("option");
+    option3.text = "VAIKOM";
+    branches.add(option3);
+  }
+}
+</script>
+
+
+{% endblock %}

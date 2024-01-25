@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="services_section">
+    <div class="container">
+      <h1 class="services_text">SERVICES</h1>
+    </div>
+  </div>
+  <div class="login_section">
+     <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Log In</h5>
+            <form class="form-signin" action="login" method="post">
+                {%csrf_token%}
+              <div class="form-label-group">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+                <label for="username">Username</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                <label for="password">Password</label>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log In</button>
+              <hr class="my-4">
+              <a class="btn btn-lg btn-google btn-block text-uppercase" href="{% url 'LoginOut:register' %}" type="submit"><i class="fab fa-google mr-2"></i> Signup </a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+       {% for msg in messages %}
+           <h2 style="color:red; padding:14px; background-color:black;text-align:center">{{msg}}</h2>
+       {% endfor %}
+  </div>
+  </div>
+  <!-- login section end-->
+
+  <!-- footer section start-->
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <h1 class="subscribr_text">Subscribe Now</h1>
+      <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority have </p>
+      <div class="box_main_2">
+          <textarea type="" class="email_bt_2" placeholder="Enter Your Email" name=""></textarea>
+        </div>
+        <button class="subscribe_bt_2"><a href="#">Subscribe</a></button>
+    </div>
+  </div>
+  <!-- footer section end-->
+  <!-- copyright section start-->
+  <div class="copyright_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="copyright_text">Copyright 2020 All Right Reserved By.<a href="https://html.design"> Free  html Templates</a></p>
+        </div>
+        <div class="col-md-6">
+          <p class="cookies_text">Cookies, Privacy and Terms</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright section end-->
+
+
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+      <script src="{% static 'js/plugin.js'%}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+      <script src="{% static 'js/custom.js'%}"></script>
+      <!-- javascript --> 
+      <script src="{% static 'js/owl.carousel.js'%}"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+      $(document).ready(function(){
+      $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         </script>
+
+</body>
+{% endblock %}
